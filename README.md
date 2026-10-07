@@ -1,6 +1,6 @@
 # SprintBot
 
-> **A Gemma 4-powered desktop assistant. You describe what you want done on your computer; Gemma 4 reasons through the plan, verified Python tools execute it, and deterministic permission boundaries keep the user in complete control.**
+> **A Gemma 4-powered Windows assistant (for PCs & laptops). You describe what you want done on your computer; Gemma 4 reasons through the plan, verified Python tools execute it, and deterministic permission boundaries keep the user in complete control.**
 
 **Team Phoenix** · Open Source AI Hackathon (Hacktober Fest, organized by Elevate) · Track: *Best Use of Gemma 4 / Gemma 4 Open-Source*
 
@@ -23,7 +23,7 @@
 | **Project Name** | SprintBot |
 | **Team** | Phoenix |
 | **Primary AI Engine** | Gemma 4 (`gemma-4-12b-it` / `gemma-4-e4b`) |
-| **Platform Target** | Windows 10 / 11 Desktop (MVP) |
+| **Platform Target** | Windows 10 / 11|
 | **Repository Type** | Qualifier Technical Proposal |
 
 ---
@@ -38,13 +38,13 @@ Users still handle these manually because existing solutions have major architec
 2. **Standard Chatbots:** Conversational models understand intent, but they are isolated in a browser sandbox. They offer advice instead of executing tasks on the host machine.
 3. **Unconstrained Autonomous Agents:** Letting an LLM generate arbitrary Python scripts or click blind desktop coordinates is dangerous and brittle. Coordinate-based clicking fails whenever display scaling (DPI) shifts, windows move, or popups appear. Worse, executing arbitrary generated shell commands on a user's local operating system invites silent data loss, accidental file deletion, or command-injection exploits.
 
-SprintBot bridges the gap between **natural language intent** and **safe, deterministic desktop execution**.
+SprintBot bridges the gap between **natural language intent** and **safe, deterministic Windows execution**.
 
 ---
 
 ## 3. Project Overview
 
-SprintBot is a general-purpose, voice- and text-driven Windows desktop assistant. The user states a goal in plain English, and SprintBot figures out the steps, validates them against safe boundaries, and executes them step-by-step.
+SprintBot is a general-purpose, voice- and text-driven Windows assistant (supporting both laptops and desktop PCs). The user states a goal in plain English, and SprintBot figures out the steps, validates them against safe boundaries, and executes them step-by-step.
 
 The architecture strictly decouples **reasoning** from **execution**:
 
@@ -117,7 +117,7 @@ SprintBot puts an explicit validation and authorization checkpoint between model
 
 ## 5. Objectives
 
-1. **Natural-Language Desktop Control:** Allow users to initiate multi-step computer tasks via voice or text without memorizing syntax or folder paths.
+1. **Natural-Language PC & Laptop Control:** Allow users to initiate multi-step computer tasks via voice or text without memorizing syntax or folder paths.
 2. **Dedicated Intelligence Boundary:** Restrict Gemma 4 to tasks requiring semantic reasoning (intent parsing, argument extraction, plan generation, re-planning, and screenshot diagnostics).
 3. **Deterministic Safety:** Route all OS interactions through developer-verified Python tools gated by a strict Allow / Ask / Deny permission engine.
 4. **Active Ambiguity Resolution:** Proactively ask clarifying questions instead of hallucinating paths, URLs, or file names when requests are ambiguous.
@@ -132,7 +132,7 @@ SprintBot puts an explicit validation and authorization checkpoint between model
 ### Target Audience
 * **Students & Academics:** Automating repetitive study workflows (downloading course material, sorting lecture notes, moving assignments into organized directory structures).
 * **Power Users & Remote Workers:** Automating multi-step digital chores (scheduled screen auditing, batch renaming, periodic backup checks) without writing brittle shell scripts.
-* **Non-Technical Desktop Users:** Getting plain-English explanations of confusing desktop errors and dialog boxes without needing to copy-paste error codes into search engines.
+* **Everyday Windows Users (Laptops & PCs):** Getting plain-English explanations of confusing system errors and dialog boxes without needing to copy-paste error codes into search engines.
 
 ### Concrete Scenarios
 
@@ -195,7 +195,7 @@ Outputs from Gemma 4:
 ```
 
 ### 6. Why an open-source approach suits the project
-A desktop assistant has direct access to user files, directory listings, and active desktop windows. Routing this sensitive context through black-box, proprietary APIs creates privacy and compliance issues. An open-weight model allows full on-premises deployment, giving users total control over their data.
+A local Windows assistant has direct access to user files, directory listings, and active application windows. Routing this sensitive context through black-box, proprietary APIs creates privacy and compliance issues. An open-weight model allows full on-premises deployment, giving users total control over their data.
 
 ---
 
@@ -660,9 +660,9 @@ SprintBot's architecture will be validated against a test suite of 30 benchmark 
 
 ## 17. Expected Final Output
 
-The final hackathon deliverable is a functional Windows desktop application featuring:
+The final hackathon deliverable is a functional Windows application (optimized for both laptops and desktop PCs) featuring:
 
-1. **Floating Desktop HUD:** A clean, draggable desktop interface with a push-to-talk voice button and expandable chat console.
+1. **Floating Assistant HUD:** A clean, draggable desktop overlay with a push-to-talk voice button and expandable chat console.
 2. **Interactive Plan Visualizer:** Live progress tracking showing the active plan, running steps, and parameter details.
 3. **Live Course Assignment Workflow:** A complete demonstration where the user issues a voice request (*"Download my networks assignment and put it in my college folder"*), answers a clarifying question, approves the destination, and watches SprintBot complete the file organization.
 4. **Scheduled Background Automation:** Demonstrating a recurring screenshot task running locally without any continuous model calls.
@@ -675,8 +675,8 @@ The final hackathon deliverable is a functional Windows desktop application feat
 * **Extensible Plugin Ecosystem:** A standard packaging specification allowing third-party developers to publish and install community-verified tools.
 * **Model Context Protocol (MCP) Integration:** Adding native MCP client support to allow SprintBot to interact with existing MCP servers (databases, GitHub, Slack).
 * **Cross-Platform Support:** Porting desktop windowing and automation hooks to macOS and Linux.
-* **Complete Offline Bundling:** Bundling an optimized `gemma-4-e4b` on-device model directly into the desktop installer for an end-to-end air-gapped personal assistant.
-* **Multi-Language Expansion:** Adding localized STT models and multilingual system prompts for non-English desktop workflows.
+* **Complete Offline Bundling:** Bundling an optimized `gemma-4-e4b` on-device model directly into the Windows installer for an end-to-end air-gapped personal assistant.
+* **Multi-Language Expansion:** Adding localized STT models and multilingual system prompts for non-English workflows.
 
 ---
 
@@ -718,7 +718,7 @@ The final hackathon deliverable is a functional Windows desktop application feat
 | Evaluation Dimension | How SprintBot Directly Addresses It |
 |---|---|
 | **Meaningful Use of Gemma 4** | Gemma 4 is the core cognitive engine driving natural language comprehension, structured plan decomposition, re-planning, and screenshot analysis. |
-| **Beyond a Superficial Wrapper** | Real desktop engineering: a 6-stage deterministic safety pipeline, Pydantic plan validation, active task ledger, Allow/Ask/Deny permissions, and push-to-talk speech pipeline. |
+| **Beyond a Superficial Wrapper** | Real Windows systems engineering: a 6-stage deterministic safety pipeline, Pydantic plan validation, active task ledger, Allow/Ask/Deny permissions, and push-to-talk speech pipeline. |
 | **Multimodal Capabilities** | Combines voice ingestion (via local STT) with on-demand visual grounding using Gemma 4's native screen and image reasoning. |
 | **Architecture & Data Flow Depth** | Comprehensive documentation including 4 detailed Mermaid flowcharts, sequence diagrams, state machines, and explicit component boundaries. |
 | **Hackathon Feasibility** | Scoped build plan dividing capabilities into strict `[MVP]` deliverables and `[Stretch]` enhancements, ensuring a robust, demonstrable core on pitch day. |
