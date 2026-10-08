@@ -22,8 +22,9 @@
 |---|---|
 | **Project Name** | SprintBot |
 | **Team** | Phoenix |
+| **Team Members** | Gurleen Dhillon<br>Pranav Dawara<br>Advait Rekhade<br>Aayush Bhawsar |
 | **Primary AI Engine** | Gemma 4 (`gemma-4-12b-it` / `gemma-4-e4b`) |
-| **Platform Target** | Windows 10 / 11|
+| **Platform Target** | Windows 10 / 11 |
 | **Repository Type** | Qualifier Technical Proposal |
 
 ---
